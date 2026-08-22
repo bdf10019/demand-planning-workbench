@@ -141,4 +141,3 @@ class ScenarioResult:
         object.__setattr__(self, "base_units", base)
         object.__setattr__(self, "scenario_units", scenario)
         object.__setattr__(self, "delta_units", scenario - base)
-

@@ -40,4 +40,3 @@ def test_registry_rejects_duplicate_names() -> None:
 def test_models_reject_empty_history() -> None:
     with pytest.raises(ValueError, match="must not be empty"):
         SeasonalNaiveModel().predict([], 1)
-

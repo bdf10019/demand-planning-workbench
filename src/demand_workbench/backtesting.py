@@ -107,8 +107,7 @@ class ForecastEngine:
             all_predicted.extend(predicted)
             fold_mase.append(mase(actual, predicted, training))
             residuals.extend(
-                observed - forecast
-                for observed, forecast in zip(actual, predicted, strict=True)
+                observed - forecast for observed, forecast in zip(actual, predicted, strict=True)
             )
 
         if not origins:

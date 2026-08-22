@@ -44,4 +44,3 @@ def test_short_history_is_forecast_with_warning() -> None:
     result = ForecastEngine().run(ingestion, horizon=2)
     assert len(result.series[0].points) == 2
     assert any("insufficient" in warning.lower() for warning in result.series[0].warnings)
-

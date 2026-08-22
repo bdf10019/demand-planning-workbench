@@ -9,8 +9,7 @@ from collections.abc import Sequence
 def wape(actual: Sequence[float], predicted: Sequence[float]) -> float:
     _validate_pair(actual, predicted)
     numerator = sum(
-        abs(observed - forecast)
-        for observed, forecast in zip(actual, predicted, strict=True)
+        abs(observed - forecast) for observed, forecast in zip(actual, predicted, strict=True)
     )
     denominator = sum(abs(value) for value in actual)
     if denominator == 0:
@@ -32,8 +31,7 @@ def mase(
     errors = [abs(training[index] - training[index - lag]) for index in range(lag, len(training))]
     scale = sum(errors) / len(errors) if errors else 0.0
     forecast_mae = sum(
-        abs(observed - forecast)
-        for observed, forecast in zip(actual, predicted, strict=True)
+        abs(observed - forecast) for observed, forecast in zip(actual, predicted, strict=True)
     ) / len(actual)
     if scale == 0:
         return 0.0 if forecast_mae == 0 else math.inf
@@ -42,9 +40,7 @@ def mase(
 
 def bias(actual: Sequence[float], predicted: Sequence[float]) -> float:
     _validate_pair(actual, predicted)
-    delta = sum(
-        forecast - observed for observed, forecast in zip(actual, predicted, strict=True)
-    )
+    delta = sum(forecast - observed for observed, forecast in zip(actual, predicted, strict=True))
     denominator = sum(abs(value) for value in actual)
     if denominator == 0:
         return 0.0 if delta == 0 else math.copysign(math.inf, delta)

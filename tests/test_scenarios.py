@@ -46,4 +46,3 @@ def test_scenario_rules_are_scoped_and_ordered() -> None:
 def test_scenario_rejects_reverse_date_range() -> None:
     with pytest.raises(ValueError, match="end_date"):
         ScenarioRule("override", 5, date(2026, 2, 2), date(2026, 2, 1))
-

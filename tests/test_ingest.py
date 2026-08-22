@@ -33,4 +33,3 @@ def test_ingest_reports_stockout_boundary() -> None:
     text = "date,sku_id,location_id,units,stockout\n2026-01-01,A,L,0,yes\n"
     result = CsvIngestor().parse(text)
     assert "latent demand" in result.series[0].warnings[0]
-

@@ -18,4 +18,3 @@ def test_zero_actual_is_explicit() -> None:
 
 def test_absolute_error_quantile_uses_nearest_rank() -> None:
     assert absolute_error_quantile([-1, 2, -8, 4], 0.75) == 4
-

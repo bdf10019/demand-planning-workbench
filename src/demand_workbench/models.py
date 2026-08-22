@@ -128,4 +128,3 @@ def _validate(history: Sequence[float], horizon: int) -> None:
         raise ValueError("Forecast horizon must be positive.")
     if any(not math.isfinite(value) or value < 0 for value in history):
         raise ValueError("Forecast history must contain finite non-negative values.")
-
