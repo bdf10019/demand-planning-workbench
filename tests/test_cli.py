@@ -27,3 +27,8 @@ def test_cli_run_and_verify(tmp_path, demo_csv: str, capsys) -> None:
 
     assert main(["verify-output", str(output_dir)]) == 0
     assert json.loads(capsys.readouterr().out)["valid"] is True
+
+    assert main(["benchmark", "--input", str(input_path), "--iterations", "2"]) == 0
+    benchmark = json.loads(capsys.readouterr().out)
+    assert benchmark["accepted_rows"] == 56
+    assert benchmark["median_ms"] > 0

@@ -1,7 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700&display=swap");
-
 :root {
-  font-family: "DM Sans", system-ui, sans-serif;
+  font-family: "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
   color: #17211d;
   background: #f1f4f0;
   font-synthesis: none;
@@ -25,7 +23,7 @@ a { color: inherit; }
 .sidebar { position: sticky; top: 0; height: 100vh; padding: 30px 22px; color: #eef6f0; background: #183c2d; display: flex; flex-direction: column; }
 .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 42px; }
 .brand-mark { width: 38px; height: 38px; display: grid; place-items: center; color: #183c2d; background: var(--lime); border-radius: 11px 11px 4px 11px; }
-.brand strong, .brand span { display: block; font-family: "Manrope", sans-serif; }
+.brand strong, .brand span { display: block; font-family: "Segoe UI Variable", "Segoe UI", sans-serif; }
 .brand strong { font-size: 17px; line-height: 1; }
 .brand span { color: #a9c1b4; font-size: 12px; margin-top: 4px; letter-spacing: .08em; text-transform: uppercase; }
 nav { display: grid; gap: 8px; }
@@ -38,13 +36,13 @@ nav { display: grid; gap: 8px; }
 
 .main-content { width: min(1460px, 100%); padding: 34px 42px 56px; }
 .topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
-.topbar h1 { font: 700 clamp(27px, 3vw, 38px)/1.1 "Manrope", sans-serif; margin: 6px 0 7px; letter-spacing: -.035em; }
+.topbar h1 { font: 700 clamp(27px, 3vw, 38px)/1.1 "Segoe UI Variable", "Segoe UI", sans-serif; margin: 6px 0 7px; letter-spacing: -.035em; }
 .topbar p:not(.eyebrow) { color: var(--muted); margin: 0; }
 .eyebrow, .section-kicker { color: var(--green); margin: 0; font-size: 11px; font-weight: 700; letter-spacing: .16em; }
 .health-pill { display: flex; align-items: center; gap: 7px; padding: 9px 13px; color: var(--green-dark); background: #e1eddf; border: 1px solid #cfdfcc; border-radius: 999px; font-size: 13px; font-weight: 700; }
 .panel { background: color-mix(in srgb, var(--panel) 94%, transparent); border: 1px solid #dce4df; border-radius: 16px; box-shadow: 0 8px 30px #243e3010; }
 .upload-panel { display: grid; grid-template-columns: minmax(250px, 1fr) minmax(220px, .8fr) 130px auto; align-items: end; gap: 16px; padding: 20px 22px; }
-.upload-panel h2, .panel h2 { margin: 5px 0; font: 700 18px/1.25 "Manrope", sans-serif; letter-spacing: -.02em; }
+.upload-panel h2, .panel h2 { margin: 5px 0; font: 700 18px/1.25 "Segoe UI Variable", "Segoe UI", sans-serif; letter-spacing: -.02em; }
 .upload-panel p:last-child { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
 .file-drop { min-height: 58px; display: flex; align-items: center; gap: 11px; padding: 10px 14px; color: var(--green-dark); background: #eef5ed; border: 1px dashed #9eb5a4; border-radius: 11px; cursor: pointer; overflow: hidden; }
 .file-drop span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; font-size: 13px; }
@@ -70,7 +68,7 @@ nav { display: grid; gap: 8px; }
 .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 14px; }
 .metric-card { padding: 17px 18px; background: #fbfcfa; border: 1px solid var(--line); border-radius: 14px; }
 .metric-card > span { display: block; color: var(--muted); font-size: 12px; }
-.metric-card strong { display: block; margin: 6px 0 2px; font: 700 25px/1.1 "Manrope", sans-serif; }
+.metric-card strong { display: block; margin: 6px 0 2px; font: 700 25px/1.1 "Segoe UI Variable", "Segoe UI", sans-serif; }
 .metric-card small { color: #839089; }
 .metric-card.alert { border-color: #ecc4aa; background: #fff8f2; }
 .forecast-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(290px, .7fr); gap: 14px; }
@@ -95,7 +93,7 @@ nav { display: grid; gap: 8px; }
 .scenario-panel .primary-button { margin-top: 15px; }
 .scenario-result { margin-top: 14px; padding: 13px; background: white; border: 1px solid var(--line); border-radius: 11px; }
 .scenario-result span, .scenario-result small { display: block; color: var(--muted); font-size: 11px; }
-.scenario-result strong { display: block; margin: 3px 0; font: 700 20px "Manrope", sans-serif; }
+.scenario-result strong { display: block; margin: 3px 0; font: 700 20px "Segoe UI Variable", "Segoe UI", sans-serif; }
 .scenario-result .positive { color: var(--green); }
 .scenario-result .negative { color: #a4472c; }
 .scenario-result a { display: flex; align-items: center; gap: 3px; margin-top: 9px; color: var(--green); font-size: 12px; font-weight: 700; text-decoration: none; }

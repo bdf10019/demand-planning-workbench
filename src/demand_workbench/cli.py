@@ -4,11 +4,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import statistics
 import sys
+import time
 from collections.abc import Sequence
 from pathlib import Path
 
 from demand_workbench import __version__
+from demand_workbench.backtesting import ForecastEngine
+from demand_workbench.ingest import CsvIngestor
 from demand_workbench.reporting import verify_manifest, write_run_artifacts
 from demand_workbench.serialization import run_to_dict
 from demand_workbench.service import DemandPlanningService
@@ -29,6 +33,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     verify = commands.add_parser("verify-output", help="Verify a report manifest and hashes.")
     verify.add_argument("output_dir", type=Path)
+
+    benchmark = commands.add_parser("benchmark", help="Measure CSV-to-forecast throughput.")
+    benchmark.add_argument("--input", type=Path, required=True)
+    benchmark.add_argument("--horizon", type=int, default=14)
+    benchmark.add_argument("--iterations", type=int, default=25)
 
     serve = commands.add_parser("serve", help="Start the loopback-only REST API.")
     serve.add_argument("--host", choices=["127.0.0.1", "localhost", "::1"], default="127.0.0.1")
@@ -84,6 +93,42 @@ def main(argv: Sequence[str] | None = None) -> int:
         valid, errors = verify_manifest(args.output_dir)
         print(json.dumps({"valid": valid, "errors": errors}, ensure_ascii=False))
         return 0 if valid else 1
+
+    if args.command == "benchmark":
+        if not args.input.is_file() or not 1 <= args.horizon <= 90:
+            print("benchmark input and horizon are invalid", file=sys.stderr)
+            return 2
+        if not 1 <= args.iterations <= 1000:
+            print("iterations must be between 1 and 1000", file=sys.stderr)
+            return 2
+        text = args.input.read_text(encoding="utf-8-sig")
+        ingestor = CsvIngestor()
+        forecaster = ForecastEngine()
+        durations: list[float] = []
+        final_batch = None
+        for _ in range(args.iterations):
+            started = time.perf_counter()
+            ingestion = ingestor.parse(text, source_name=args.input.name)
+            final_batch = forecaster.run(ingestion, args.horizon)
+            durations.append(time.perf_counter() - started)
+        assert final_batch is not None
+        ordered = sorted(durations)
+        p95_index = max(0, int(len(ordered) * 0.95) - 1)
+        median_seconds = statistics.median(durations)
+        print(
+            json.dumps(
+                {
+                    "iterations": args.iterations,
+                    "accepted_rows": final_batch.accepted_rows,
+                    "series": len(final_batch.series),
+                    "horizon": final_batch.horizon,
+                    "median_ms": round(median_seconds * 1000, 3),
+                    "p95_ms": round(ordered[p95_index] * 1000, 3),
+                    "rows_per_second": round(final_batch.accepted_rows / median_seconds, 1),
+                }
+            )
+        )
+        return 0
 
     if args.command == "serve":
         import uvicorn

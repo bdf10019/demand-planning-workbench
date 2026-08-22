@@ -16,6 +16,7 @@ dist/
 frontend/node_modules/
 frontend/dist/
 frontend/coverage/
+*.tsbuildinfo
 
 data/raw/*
 !data/raw/.gitkeep
@@ -30,4 +31,3 @@ outputs/*
 .vscode/
 .DS_Store
 Thumbs.db
-

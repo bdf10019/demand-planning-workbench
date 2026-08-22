@@ -8,10 +8,12 @@ dependencies retain their own licenses.
 | FastAPI | REST API | MIT |
 | Pydantic | Request and response validation | MIT |
 | Uvicorn | Local ASGI server | BSD-3-Clause |
+| HTTPX2 | API test client | BSD-3-Clause |
 | React / React DOM | Web interface | MIT |
 | Vite / Vitest | Frontend build and tests | MIT |
 | TypeScript | Static typing | Apache-2.0 |
 | Testing Library | UI tests | MIT |
+| openpyxl | Optional public workbook conversion | MIT |
 
 Optional evaluation data:
 
@@ -19,4 +21,3 @@ Optional evaluation data:
   DOI `10.24432/C5CG6D`, licensed under CC BY 4.0.
 
 The dataset itself is not redistributed in this repository.
-

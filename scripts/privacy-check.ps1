@@ -49,8 +49,8 @@ try {
     if ($LASTEXITCODE -gt 1) { throw "Git content scan failed." }
 
     Write-Host "Privacy check passed: $($tracked.Count) tracked files scanned."
+    exit 0
 }
 finally {
     Pop-Location
 }
-
