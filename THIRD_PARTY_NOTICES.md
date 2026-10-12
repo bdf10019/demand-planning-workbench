@@ -1,6 +1,6 @@
 # Third-party notices
 
-Demand Planning Workbench is distributed under the MIT License. Runtime and development
+Current original-code licensing and historical permissions are described in [LICENSE_INFORMATION.md](LICENSE_INFORMATION.md). Runtime and development
 dependencies retain their own licenses.
 
 | Component | Purpose | License family |

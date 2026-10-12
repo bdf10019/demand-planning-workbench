@@ -8,8 +8,7 @@ version = "1.0.0"
 description = "Traceable demand forecasting and scenario planning workbench"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "MIT"
-license-files = ["LICENSE"]
+license-files = ["LICENSE_INFORMATION.md"]
 authors = [{ name = "Demand Planning Workbench contributors" }]
 dependencies = [
   "fastapi>=0.115,<1",

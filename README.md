@@ -1,5 +1,7 @@
 # Demand Planning Workbench
 
+授權狀態：現行原創程式未另行授予通用開源授權；歷史版本與第三方／資料授權另見 [LICENSE_INFORMATION.md](LICENSE_INFORMATION.md)。
+
 一套可在本機執行的需求預測與情境規劃平台。系統把銷售資料驗證、時間序列回測、
 模型選擇、預測區間、情境調整、執行稽核及報告輸出串成一條可重現的全端工作流。
 
@@ -183,5 +185,5 @@ outputs                SQLite、報告及基準產物；Git 忽略
 
 ## 授權
 
-專案原始碼與原創範例採 MIT License。第三方套件及資料來源見
+現行原創程式未另行授予通用開源授權；原創範例與歷史權利見 [授權說明](LICENSE_INFORMATION.md)。第三方套件及資料來源見
 [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)。
